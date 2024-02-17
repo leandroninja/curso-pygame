@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from sys import exit
+from random import randint
 
 
 pygame.init()
@@ -11,6 +12,9 @@ altura = 480
 # varialvel x,y controla movimento do retangulo
 x = largura/2
 y = altura/2
+
+x_azul = randint(40,600)
+y_azul = randint(50,430)
 
 
 tela = pygame.display.set_mode((largura, altura))
@@ -39,15 +43,24 @@ while True:
             
 
     if pygame.key.get_pressed()[K_LEFT]:
-       x = x - 20
+        x = x - 20
     if pygame.key.get_pressed()[K_RIGHT]:
-       x = x + 20  
+        x = x + 20  
     if pygame.key.get_pressed()[K_UP]:
-       y = y - 20 
+        y = y - 20 
     if pygame.key.get_pressed()[K_DOWN]:
-       y = y + 20      
+        y = y + 20   
+        
+           
 
-    pygame.draw.rect(tela, (255,0,0), (x, y,40,50)) 
+    ret_vermelho = pygame.draw.rect(tela, (255,0,0), (x,y,40,50)) 
+    ret_azul = pygame.draw.rect(tela, (0,0,255), (x_azul,y_azul,40,50)) 
+    
+
+    if ret_vermelho.colliderect(ret_azul):
+        x_azul = randint(40, 600)
+        y_azul = randint(50, 430)
+
     
 
 
