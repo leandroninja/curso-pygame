@@ -11,7 +11,7 @@ altura = 480
 
 
 tela = pygame.display.set_mode((largura, altura))
-
+pygame.display.set_caption('janela do jogo')
 
 while True:
 
