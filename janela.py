@@ -91,7 +91,7 @@ while True:
     lista_cabeca.append(y_cobra)
     lista_cobra.append(lista_cabeca)
     
-    aumenta_cobra(lista_cobra)
+    aumenta_cobra(lista_cobra),
 
     
 
