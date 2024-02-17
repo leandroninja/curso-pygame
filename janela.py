@@ -6,12 +6,18 @@ from random import randint
 
 pygame.init()
 
+pygame.mixer_music.set_volume(5)
+musica_de_fundo = pygame.mixer.music.load('Invincible.mp3') 
+pygame.mixer_music.play(-1)
+
+barulho_colisao = pygame.mixer.Sound('coin.wav')
+barulho_colisao.set_volume(1)
 
 largura = 640
 altura = 480
 # varialvel x,y controla movimento do retangulo
-x = largura/2
-y = altura/2
+x = int(largura/2)
+y = int(altura/2)
 
 x_azul = randint(40,600)
 y_azul = randint(50,430)
@@ -66,7 +72,7 @@ while True:
         x_azul = randint(40, 600)
         y_azul = randint(50, 430)
         pontos = pontos + 1
-        
+        barulho_colisao.play()
         
     tela.blit(texto_formatado, (450,40))    
 
